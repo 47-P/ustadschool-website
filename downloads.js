@@ -5,7 +5,6 @@ const DOWNLOADS = {
   ios: "",     // App Store listing
   mac: "",     // .dmg (Apple silicon + Intel)
   windows: "", // .exe / .msi
-  linux: "",   // AppImage / .deb
   checksums: "", // page or file with the SHA-256 fingerprints
 };
 
