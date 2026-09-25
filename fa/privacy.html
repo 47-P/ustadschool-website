@@ -116,6 +116,19 @@ html{scroll-behavior:smooth}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .rise{animation:rise .5s cubic-bezier(.2,.8,.2,1) backwards}
 
+
+/* Buttons: lift and tilt on hover, a shine sweeps across, the icon bounces; press sinks into the ledge. */
+.btnfx{position:relative;overflow:hidden;isolation:isolate;transition:transform .24s cubic-bezier(.3,1.4,.5,1),filter .2s ease,background-color .2s ease;will-change:transform}
+.btnfx::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);transform:translateX(-130%);pointer-events:none}
+.btnfx:hover{transform:translateY(-3px) rotate(-1.2deg);filter:brightness(1.05) saturate(1.1)}
+.btnfx:hover::after{transform:translateX(130%);transition:transform .7s ease}
+.btnfx:active{transform:translateY(4px);box-shadow:none!important;transition-duration:.09s}
+.btnfx svg{transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.btnfx:hover svg{transform:scale(1.18) rotate(-10deg)!important}
+.btnfx:focus-visible{outline:none;box-shadow:0 0 0 4px #FFFFFF,0 0 0 7px #00827E!important}
+.pillfx{transition:background-color .2s ease,transform .24s cubic-bezier(.3,1.4,.5,1)}
+.pillfx:hover{background:#FFFFFF!important;transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){.btnfx,.btnfx svg,.btnfx::after,.pillfx{transition:none!important;transform:none!important}}
 </style>
 </head>
 <body>
@@ -128,9 +141,9 @@ html{scroll-behavior:smooth}
     </a>
     <div style="display: flex; gap: 4px; background: rgb(243, 236, 226); border-radius: 12px; padding: 4px;">
       <div style="height: 30px; padding: 0px 9px; border-radius: 9px; background: rgb(255, 255, 255); box-shadow: rgb(230, 220, 205) 0px 2px 0px; display: flex; align-items: center; font: 800 13px / 1 Vazirmatn, sans-serif;">فارسی</div>
-      <a href="/privacy" hreflang="en" style="height: 30px; padding: 0px 9px; border-radius: 9px; display: flex; align-items: center; font: 800 12px / 1.45 Vazirmatn, Rubik, sans-serif; color: rgb(78, 72, 104);">EN</a>
+      <a class="pillfx" href="/privacy" hreflang="en" style="height: 30px; padding: 0px 9px; border-radius: 9px; display: flex; align-items: center; font: 800 12px / 1.45 Vazirmatn, Rubik, sans-serif; color: rgb(78, 72, 104);">EN</a>
     </div>
-    <a href="/fa/#download" style="height: 44px; padding: 0px 14px; border-radius: 14px; background: rgb(255, 179, 26); box-shadow: rgb(201, 131, 0) 0px 4px 0px; display: flex; align-items: center; gap: 8px; flex: 0 0 auto; font: 800 15px / 1.45 Vazirmatn, Rubik, sans-serif; color: rgb(28, 20, 51);">دانلود</a>
+    <a class="btnfx" href="/fa/#download" style="height: 44px; padding: 0px 14px; border-radius: 14px; background: rgb(255, 179, 26); box-shadow: rgb(201, 131, 0) 0px 4px 0px; display: flex; align-items: center; gap: 8px; flex: 0 0 auto; font: 800 15px / 1.45 Vazirmatn, Rubik, sans-serif; color: rgb(28, 20, 51);">دانلود</a>
   </div></div>
 
 <section class="hero" style="background:#00827E;color:#fff">
@@ -147,9 +160,9 @@ html{scroll-behavior:smooth}
       <div style="font: 900 28px / 1.5 Vazirmatn, Rubik, sans-serif; color: rgb(28, 20, 51);">هنوز درس می‌خوانم.</div>
     </div>
     <div style="display: flex; gap: 10px; flex-wrap: wrap; font: 800 15px / 1.45 Vazirmatn, Rubik, sans-serif;">
-      <a href="/fa/#download" style="height: 44px; padding: 0px 16px; border-radius: 14px; background: rgb(28, 20, 51); color: rgb(255, 255, 255); display: flex; align-items: center;">دانلود</a>
-      <a href="/fa/privacy" style="height: 44px; padding: 0px 16px; border-radius: 14px; background: rgb(255, 248, 239); color: rgb(28, 20, 51); display: flex; align-items: center;">حریم خصوصی</a>
-      <a href="/fa/press" style="height: 44px; padding: 0px 16px; border-radius: 14px; background: rgb(255, 248, 239); color: rgb(28, 20, 51); display: flex; align-items: center;">رسانه‌ها</a>
+      <a class="btnfx" href="/fa/#download" style="height: 44px; padding: 0px 16px; border-radius: 14px; background: rgb(28, 20, 51); color: rgb(255, 255, 255); display: flex; align-items: center;">دانلود</a>
+      <a class="btnfx" href="/fa/privacy" style="height: 44px; padding: 0px 16px; border-radius: 14px; background: rgb(255, 248, 239); color: rgb(28, 20, 51); display: flex; align-items: center;">حریم خصوصی</a>
+      <a class="btnfx" href="/fa/press" style="height: 44px; padding: 0px 16px; border-radius: 14px; background: rgb(255, 248, 239); color: rgb(28, 20, 51); display: flex; align-items: center;">رسانه‌ها</a>
     </div>
   </div>
 
